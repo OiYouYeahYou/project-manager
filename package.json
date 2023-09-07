@@ -1,0 +1,17 @@
+{
+	"private": true,
+	"workspaces": [
+		"packages/*",
+		"apps/*"
+	],
+	"scripts": {
+		"_prettier": "prettier {apps,packages}/**/*.{ts,js,json,md} README.md package.json",
+		"format": "npm run _prettier -- --write"
+	},
+	"devDependencies": {
+		"nodemon": "^3.0.1",
+		"prettier": "^3.0.3",
+		"ts-node": "^10.9.1",
+		"typescript": "^5.2.2"
+	}
+}

@@ -1,0 +1,3 @@
+{
+	"extends": "project-manager-infra/tsconfig.base.json"
+}

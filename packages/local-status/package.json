@@ -1,0 +1,21 @@
+{
+	"name": "project-manager-local-status",
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"build": "tsc",
+		"prepublishOnly": "npm run build"
+	},
+	"dependencies": {
+		"project-manager-config": "*",
+		"simple-git": "^3.19.1"
+	},
+	"devDependencies": {
+		"@types/node": "^20.5.7",
+		"project-manager-infra": "^0.0.0"
+	},
+	"main": "src/index.js",
+	"files": [
+		"src/**/*.{js,d.ts}"
+	]
+}

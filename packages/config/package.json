@@ -1,0 +1,19 @@
+{
+	"name": "project-manager-config",
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"build": "tsc",
+		"prepublishOnly": "npm run build"
+	},
+	"dependencies": {
+		"env-paths": "^3.0.0"
+	},
+	"devDependencies": {
+		"project-manager-infra": "^0.0.0"
+	},
+	"main": "src/index.js",
+	"files": [
+		"src/**/*.{js,d.ts}"
+	]
+}
