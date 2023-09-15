@@ -19,7 +19,7 @@ export class Project {
 
 		const [isClean, hasStashes, branches, { hasRemotes, remotes }] =
 			await Promise.all([
-				this.isclean(),
+				this.isClean(),
 				this.hasStashes(),
 				this.branches(),
 				this.remotes(),
@@ -48,7 +48,7 @@ export class Project {
 		}
 	}
 
-	async isclean() {
+	async isClean() {
 		const status = await this._git!.status()
 		const { not_added, conflicted, created, deleted } = status
 		return (
