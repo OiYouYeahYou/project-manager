@@ -1,5 +1,10 @@
 {
 	"files.exclude": {
-		"**/src/**/*.{js,d.ts}": true
-	}
+		"**/src/**/*.{js,d.ts}": true,
+		"apps/cli/demo/*.{js,d.ts}": true
+	},
+	"cSpell.words": [
+		"unstashed",
+		"unsynced"
+	]
 }
