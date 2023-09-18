@@ -3,13 +3,21 @@ import { join, resolve } from 'node:path'
 import { simpleGit as Git } from 'simple-git'
 import { Project } from './Project.js'
 
+interface GetStatusOptions {
+	/** Target to find projects in */
+	directory: string
+	/** Number of directories to look into */
+	depth?: number
+}
+
+/**
+ * Index projects and their status
+ * @returns a list of projects
+ */
 export async function getStatus({
 	directory,
 	depth = 2,
-}: {
-	directory: string
-	depth?: number
-}): Promise<Project[]> {
+}: GetStatusOptions): Promise<Project[]> {
 	const targetPath = resolve(directory)
 
 	const entries = await readdir(targetPath)
@@ -40,5 +48,6 @@ export async function getStatus({
 	return (await Promise.all(projects)).filter(filterNonNullable).flat()
 }
 
+/** Predicate for filtering non-null values */
 const filterNonNullable = <T>(v: T): v is NonNullable<T> =>
 	v !== undefined && v !== null

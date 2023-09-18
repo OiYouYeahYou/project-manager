@@ -8,17 +8,24 @@ interface Base<Status extends LocalBranchState> {
 	name: string
 	status: Status
 }
-interface OrphanedStatus extends Base<LocalBranchState.ORPHANED> {}
-interface SyncedStatus extends Base<LocalBranchState.SYNCED> {
+
+/** Branch only exists locally */
+export interface OrphanedStatus extends Base<LocalBranchState.ORPHANED> {}
+
+/** Branch has a remote and is synced */
+export interface SyncedStatus extends Base<LocalBranchState.SYNCED> {
 	remote: string
 }
-interface UnnsyncedSatatus extends Base<LocalBranchState.UNSYNCED> {
+
+/** Branch has a remote, but is either ahead or behind */
+export interface UnsyncedStatus extends Base<LocalBranchState.UNSYNCED> {
 	remote: string
 	ahead: number
 	behind: number
 }
 
-export type BranchStatus = SyncedStatus | UnnsyncedSatatus | OrphanedStatus
+/** Type guard based on possible states of the branch */
+export type BranchStatus = SyncedStatus | UnsyncedStatus | OrphanedStatus
 
 // TODO: Add tests
 /**

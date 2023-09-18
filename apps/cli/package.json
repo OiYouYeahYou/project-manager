@@ -18,5 +18,8 @@
 	"files": [
 		"./src/**/*.{js,d.ts}",
 		"./bin"
+	],
+	"clean": [
+		"{src,demo}/**/*.{js,d.ts}"
 	]
 }

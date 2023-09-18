@@ -132,3 +132,5 @@ dist
 # Project Manager Specific
 **/src/**/*.js
 **/src/**/*.d.ts
+**/demo/**/*.js
+**/demo/**/*.d.ts

@@ -12,6 +12,7 @@ export function constructStatus({ path, info }: makeStatusOptions): string {
 	return `${status} ${humanPath}`
 }
 
+/** Converts `ProjectInfo` a set of emojis */
 function gitStatus(info?: ProjectInfo): string {
 	if (!info) {
 		return Array.from({ length: 3 }, () => FUN.NO_GIT).join(' ')
@@ -26,7 +27,8 @@ function gitStatus(info?: ProjectInfo): string {
 	return [clean, stashed, happyBranches].join(' ')
 }
 
-function backupStatus(info: ProjectInfo): FUN {
+/** Convert the status of relationship to upstream to a single emoji */
+function backupStatus(info: Pick<ProjectInfo, 'branches' | 'hasRemotes'>): FUN {
 	const { branches, hasRemotes } = info
 
 	if (!hasRemotes) {
@@ -48,6 +50,7 @@ function backupStatus(info: ProjectInfo): FUN {
 	return isSynced ? FUN.SYNCED : FUN.UNSYNCED
 }
 
+/** Emoji's all in one place */
 export enum FUN {
 	DIRTY = '🧹',
 	CLEAN = '✨',
