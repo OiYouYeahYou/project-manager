@@ -9,7 +9,7 @@ const FIVE_SECONDS = 5 * 1000
 export const fetchDelay = ONE_HOUR
 export const cacheWriteDelay = FIVE_SECONDS
 
-const paths = envPaths('project-manager/local-status')
+const paths = envPaths('project-manager')
 
 export const cacheDir = paths.cache
 export const cachePath = join(paths.cache, 'cache.json')
